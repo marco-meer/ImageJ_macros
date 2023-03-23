@@ -1,5 +1,5 @@
 // Rescales single-channel z-stacks
-
+// Stored in subfolder 'rescaled'
 
 setBatchMode(true);
 
