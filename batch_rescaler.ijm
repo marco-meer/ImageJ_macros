@@ -24,7 +24,7 @@ for (i = 0; i < list.length; i++) {
    if (endsWith(list[i], ".tif")) {
       filePath = inputDir + list[i];
       run("Bio-Formats Importer", "open=" +inputDir + list[i] + " autoscale color_mode=Default rois_import=[ROI manager] view=Hyperstack stack_order=XYCZT");
-      run("Scale...", "x="+ x_value + " y=" + y_value + " z=" + z_value + " interpolation=Bilinear");
+      run("Scale...", "x="+ x_value + " y=" + y_value + " z=" + z_value + " interpolation=None");
       saveAs("Tiff", outputDir + list[i]);
       close("*"); // seems to flush memory    
    }
