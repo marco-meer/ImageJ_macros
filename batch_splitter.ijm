@@ -4,7 +4,7 @@
 // In batch mode no windows open and the macro runs in the background
 setBatchMode(true);
 
-// Define input and output directories. Do not forget the '/' at the end.
+// Define input and output directories. 
 inputDir = getDirectory("Select input directory");
 File.setDefaultDir(inputDir); // this is needed when the macro file is located elsewhere
 outputDir = inputDir + File.separator + "single_channels" + File.separator ;
