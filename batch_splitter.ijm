@@ -33,6 +33,3 @@ for (i = 0; i < list.length; i++) {
 }
 
 setBatchMode(false);
-
-
-File.se
