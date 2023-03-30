@@ -1,7 +1,9 @@
-// Splits multi-channel z-stacks into single-channel z-stacks
-// Stored in subfolder 'single_channels'
+// This macro splits multi-channel z-stack images into single-channel z-stack images.
+// The resulting single-channel z-stacks are stored in a subfolder named 'single_channels'.
+// It checks if the input images are in TIFF format and uses the Bio-Formats Importer plugin to open them.
+// It also assumes that there are no other TIFF files in the input directory, besides the ones containing the z-stacks to be split.
 
-// In batch mode no windows open and the macro runs in the background
+// Set batch mode to true to speed up the macro by disabling the display of images during processing.
 setBatchMode(true);
 
 // Define input and output directories. 
@@ -21,6 +23,7 @@ for (i = 0; i < list.length; i++) {
       // get some info about the image
 	  getDimensions(width, height, channels, slices, frames);
 	  if (channels > 1) run("Split Channels");
+      // Get the number of resulting images after splitting.
       nChannels = nImages();
       for (c = 1; c <= nChannels; c++) {
       selectImage(c);
@@ -28,7 +31,8 @@ for (i = 0; i < list.length; i++) {
       channelName = getTitle();
       saveAs("Tiff", outputDir + channelName );
       }  
-      close("*"); // seems to flush memory
+      // // Close the image to free up memory (even in batch mode).
+      close("*"); 
    }
 }
 
