@@ -23,8 +23,6 @@ for (i = 0; i < fileList.length; i++) {
     sCount=seriesCount;
     for (s = 0; s < sCount; s++) {
       run("Bio-Formats Importer", "open=[" + path + "] autoscale color_mode=Default view=Hyperstack stack_order=XYCZT series_"+(s));
-      // Extract the current series as a TIF stack
-      //run("Stack to TIFF...", "save=[" + outputDir + File.nameWithoutExtension(fileList[i]) + "_series" + s + ".tif]");
       saveAs("Tiff",outputDir + fileList[i] + "_series" + s + ".tif");
       // Close the TIF stack
       close();
