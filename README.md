@@ -1,5 +1,5 @@
 # ImageJ_macros
-Basic ImageJ macros for batch jobs
+## Basic ImageJ macros for batch processing of z-stack microscopy images
 
 * batch_splitter: Splits multi-channel z-stacks into single-channel z-stacks
 * batch_rescaler: Rescales single-channel z-stacks
