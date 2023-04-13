@@ -26,19 +26,13 @@ if (inputString=="R") {
 for (i = 0; i < list.length; i++) {
 	if (endsWith(list[i], ".tif")) {
    
-// Open the image in grayscale mode
-  run("Bio-Formats Importer", "open=[" + inputFolder + list[i] + "] autoscale color_mode=Grayscale rois_import=[ROI manager] view=Hyperstack stack_order=XYCZT"
+      // Open the image and convert to grayscale
+      run("Bio-Formats Importer", "open=[" + inputFolder + list[i] + "] autoscale color_mode=Default rois_import=[ROI manager] view=Hyperstack stack_order=XYCZT");
       run("Split Channels");
       // Get the titles of the split channels windows
       titles = getList("image.titles");
-      // close other color channels to reduce memory usage
-      for (i = 0; i < titles.length; i++) {
-             if (i == colorChannel) {
-                      selectWindow(titles[colorChannel]);  
-             } else {
-                 close(titles[i]);
-             }
-         }
+
+      selectWindow(titles[colorChannel]);  
 
       run(bit_depth+"-bit");
     
@@ -49,7 +43,7 @@ for (i = 0; i < list.length; i++) {
       // Save the grayscale image with the new filename
       saveAs("Tiff", outputPath);
     
-      // Close the original image, even needed in batch mode (memory)
+      // Close all images, even needed in batch mode (memory)
       close("*");
 	  }
 }
