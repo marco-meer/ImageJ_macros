@@ -26,8 +26,8 @@ if (inputString=="R") {
 for (i = 0; i < list.length; i++) {
 	if (endsWith(list[i], ".tif")) {
    
-      // Open the image and convert to grayscale
-      run("Bio-Formats Importer", "open=[" + inputFolder + list[i] + "] autoscale color_mode=Default rois_import=[ROI manager] view=Hyperstack stack_order=XYCZT");
+// Open the image in grayscale mode
+  run("Bio-Formats Importer", "open=[" + inputFolder + list[i] + "] autoscale color_mode=Grayscale rois_import=[ROI manager] view=Hyperstack stack_order=XYCZT"
       run("Split Channels");
       // Get the titles of the split channels windows
       titles = getList("image.titles");
