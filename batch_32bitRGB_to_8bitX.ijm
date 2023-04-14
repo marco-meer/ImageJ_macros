@@ -1,7 +1,4 @@
-// This script converts 32bit RGB TIF images to 8bit single color images by splitting color channels, keeping selected color channel and reducing bit depth to 8bit.
-// CLI alternative: https://libtiff.gitlab.io/libtiff/tools/tiff2bw.html
-
-
+// This script converts 32bit RGB TIFF to 8bit single color TIFF by splitting color channels and saving selected color channel
 
 // Set batch mode to true to speed up the macro by disabling the display of images during processing.
 setBatchMode(true);
@@ -31,21 +28,20 @@ if (inputString=="R") {
 for (i = 0; i < list.length; i++) {
 	if (endsWith(list[i], ".tif")) {
    
-      // Open the image and convert to grayscale
+      // Open the image 
       run("Bio-Formats Importer", "open=[" + inputFolder + list[i] + "] autoscale color_mode=Default rois_import=[ROI manager] view=Hyperstack stack_order=XYCZT");
       run("Split Channels");
+      
       // Get the titles of the split channels windows
       titles = getList("image.titles");
 
       selectWindow(titles[colorChannel]);  
-
-      run(bit_depth+"-bit");
-    
+ 
       // Construct the output filename
       outputFilename = replace(list[i], ".tif", "_"+bit_depth+"bit.tif");
       outputPath = inputFolder + outputFilename;
     
-      // Save the grayscale image with the new filename
+      // Save the selected color channel with the new filename
       saveAs("Tiff", outputPath);
     
       // Close all images, even needed in batch mode (memory)
