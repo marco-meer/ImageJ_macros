@@ -53,3 +53,5 @@ if (endsWith(list[i], ".tif")) {
     // Close all images to free up memory, even in batch mode
     close("*");
 }
+
+setBatchMode(false);
