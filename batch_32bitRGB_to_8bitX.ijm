@@ -44,7 +44,7 @@ if (endsWith(list[i], ".tif")) {
     selectWindow(titles[colorChannel]);  
 
     // Construct the output filename by appending the bit depth to the input filename
-    outputFilename = replace(list[i], ".tif", "_" + bit_depth + "bit.tif");
+    outputFilename = replace(list[i], ".tif", "_" + bit_depth + "bit"+inputString+".tif");
     outputPath = inputFolder + outputFilename;
 
     // Save the selected color channel with the new filename
