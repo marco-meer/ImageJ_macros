@@ -30,28 +30,29 @@ showMessage("Invalid input: " + inputString);
 
 // Loop through each TIFF file in the input folder
 for (i = 0; i < list.length; i++) {
-if (endsWith(list[i], ".tif")) {
-    // Open the image using the Bio-Formats Importer plugin
-    run("Bio-Formats Importer", "open=[" + inputFolder + list[i] + "] autoscale color_mode=Default rois_import=[ROI manager] view=Hyperstack stack_order=XYCZT");
+    if (endsWith(list[i], ".tif")) {
+        // Open the image using the Bio-Formats Importer plugin
+        run("Bio-Formats Importer", "open=[" + inputFolder + list[i] + "] autoscale color_mode=Default rois_import=[ROI manager] view=Hyperstack stack_order=XYCZT");
   
-    // Split the channels of the image
-    run("Split Channels");
+        // Split the channels of the image
+        run("Split Channels");
   
-    // Get the titles of the split channel windows
-    titles = getList("image.titles");
+        // Get the titles of the split channel windows
+        titles = getList("image.titles");
 
-    // Select the window corresponding to the specified color channel
-    selectWindow(titles[colorChannel]);  
+        // Select the window corresponding to the specified color channel
+        selectWindow(titles[colorChannel]);  
 
-    // Construct the output filename by appending the bit depth to the input filename
-    outputFilename = replace(list[i], ".tif", "_" + bit_depth + "bit"+inputString+".tif");
-    outputPath = inputFolder + outputFilename;
+        // Construct the output filename by appending the bit depth to the input filename
+        outputFilename = replace(list[i], ".tif", "_" + bit_depth + "bit"+inputString+".tif");
+        outputPath = inputFolder + outputFilename;
 
-    // Save the selected color channel with the new filename
-    saveAs("Tiff", outputPath);
+        // Save the selected color channel with the new filename
+        saveAs("Tiff", outputPath);
 
-    // Close all images to free up memory, even in batch mode
-    close("*");
+        // Close all images to free up memory, even in batch mode
+        close("*");
+    }
 }
 
 setBatchMode(false);
