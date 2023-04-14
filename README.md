@@ -5,4 +5,4 @@
 * [batch_rescaler](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/batch_rescaler.ijm): Rescales single-channel z-stacks
 * [batch_MIP](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/batch_MIP.ijm): Performs maximum intensity projection on single channel z-stacks
 * [LIFs2TIFs](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/LIFs2TIFs.ijm): takes all LIF files in a folder and exports all series of each LIF as TIFs
-* [batch_32bitRGB_to_8bitX](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/batch_32bitRGB_to_8bitX.ijm): Batch converts the RGB TIFs that NDP.view2 generates into grayscale images to reduce filesize by 75%. Takes a folder full of single-channel images with the same color (R, G or B). 
+* [batch_32bitRGB_to_8bitX](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/batch_32bitRGB_to_8bitX.ijm): Extracts single color from Hamamatsu's NDP.view2-generated RGB TIFs to reduce filesize by 75%. 
