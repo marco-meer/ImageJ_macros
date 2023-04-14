@@ -1,3 +1,8 @@
+// This script converts 32bit RGB TIF images to 8bit single color images by splitting color channels, keeping selected color channel and reducing bit depth to 8bit.
+// CLI alternative: https://libtiff.gitlab.io/libtiff/tools/tiff2bw.html
+
+
+
 // Set batch mode to true to speed up the macro by disabling the display of images during processing.
 setBatchMode(true);
 // Set the directory containing the images
