@@ -6,16 +6,20 @@
 // Set batch mode to true to speed up the macro by disabling the display of images during processing.
 setBatchMode(true);
 
-// Prompt user to choose number of tiles
-n = getNumber("Enter number of tiles per row/column:", 4);
-n_total = n*n;
+// Prompt user to enter a square number for the total number of tiles
+n_total = -1;
+while (n_total < 0 || Math.sqrt(n_total) % 1 != 0) {
+  n_total = getNumber("Enter a square number for the total number of tiles:", 16);
+}
 
-// Define input and output directories. 
+// Calculate the number of tiles per row/column
+n = Math.sqrt(n_total);
+
+// Define input and output directories
 inputFolder = getDirectory("Select input directory");
 File.setDefaultDir(inputFolder); // this is needed when the macro file is located elsewhere
-outputFolder = inputFolder + File.separator + "Tiled"+n_total + File.separator ;
+outputFolder = inputFolder + File.separator + "Tiled" + n_total + File.separator ;
 File.makeDirectory(outputFolder);
-
 
 // Get a list of all files in the folder
 list = getFileList(inputFolder);
@@ -51,7 +55,9 @@ for (i = 0; i < list.length; i++) {
         run("Duplicate...", "title=" + tileTitle); 
         makeRectangle(offsetX, offsetY, tileWidth, tileHeight); 
         run("Crop"); 
-        saveAs("Tiff", outputFolder + list[i] + "_tile_" + x + "_" + y + ".tif"); // Save the current tile as a new TIF file
+
+        // Save the current tile as a new TIF file
+        saveAs("Tiff", outputFolder + list[i] + "_tile_" + x + "_" + y + ".tif"); 
       } 
     } 
 
@@ -62,6 +68,5 @@ for (i = 0; i < list.length; i++) {
   } // end if statement for TIF files
 
 } // end for loop for files in folder
-
 
 setBatchMode(false);
