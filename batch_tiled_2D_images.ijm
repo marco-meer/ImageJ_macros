@@ -9,7 +9,7 @@ setBatchMode(true);
 // Prompt user to enter a square number for the total number of tiles
 n_total = -1;
 while (n_total < 0 || Math.sqrt(n_total) % 1 != 0) {
-  n_total = getNumber("Enter a square number for the total number of tiles:", 16);
+  n_total = getNumber("Enter a square number for the expected number of tiles per image:", 16);
 }
 
 // Calculate the number of tiles per row/column
