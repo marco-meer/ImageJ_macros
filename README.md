@@ -1,5 +1,5 @@
 # ImageJ_macros
-## For batch processing of z-stack microscopy images
+## For batch processing of microscopy images
 
 * [batch_channel_splitter](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/batch_splitter.ijm): Splits multi-channel z-stacks into single-channel z-stacks
 * [batch_rescaler](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/batch_rescaler.ijm): Rescales single-channel z-stacks
