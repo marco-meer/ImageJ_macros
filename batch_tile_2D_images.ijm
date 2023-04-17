@@ -58,6 +58,7 @@ for (i = 0; i < list.length; i++) {
 
         // Save the current tile as a new TIF file
         saveAs("Tiff", outputFolder + list[i] + "_tile_" + x + "_" + y + ".tif"); 
+        close();
       } 
     } 
 
