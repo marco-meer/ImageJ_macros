@@ -19,7 +19,7 @@ list = getFileList(inputDir);
 for (i = 0; i < list.length; i++) {
    if (endsWith(list[i], ".tif")) {
       filePath = inputDir + list[i];
-      run("Bio-Formats Importer", "open=" +inputDir + list[i] + " autoscale color_mode=Default rois_import=[ROI manager] view=Hyperstack stack_order=XYCZT");
+      run("Bio-Formats Importer", "open=[" +inputDir + list[i] + "] autoscale color_mode=Default rois_import=[ROI manager] view=Hyperstack stack_order=XYCZT");
       // get some info about the image
 	  getDimensions(width, height, channels, slices, frames);
 	  if (channels > 1) run("Split Channels");
