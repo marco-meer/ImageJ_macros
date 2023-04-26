@@ -7,3 +7,4 @@
 * [LIFs2TIFs](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/LIFs2TIFs.ijm): Exports all series of each LIF as TIFs
 * batch_32bitRGB_to_8bitX: Extracts R, G or B from RGB TIFs to reduce filesize by 75%, as [Fiji macro](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/batch_32bitRGB_to_8bitX.ijm) or as [Bash shell script](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/batch_32bitRGB_to_8bitX.sh)
 * [batch_tile_2D_images](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/batch_tile_2D_images.ijm): Splits 2D single-channel images into a specified number of tiles.
+* [batch_NDPI_to_8bitTIF](https://raw.githubusercontent.com/marco-meer/ImageJ_macros/main/batch_NDPI_to_8bitTIF.ijm): Batch converts NDPI files to 8bit TIF files, asking for color channel and series to be selected.
