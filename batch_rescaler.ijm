@@ -1,4 +1,4 @@
-/ This macro rescales single-channel z-stack images in a directory and saves the resulting images in a subfolder named 'rescaled'.
+// This macro rescales single-channel z-stack images in a directory and saves the resulting images in a subfolder named 'rescaled'.
 // It prompts the user to input the pixel width and voxel depth in microns.
 // It checks if the input images are in TIFF format and uses the Bio-Formats Importer plugin to open them.
 // It also assumes that there are no other TIFF files in the input directory, besides the ones containing the z-stacks to be rescaled.
